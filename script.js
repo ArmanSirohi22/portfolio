@@ -1,18 +1,1 @@
-const root=document.documentElement;
-const saved=localStorage.getItem("theme");
-if(saved) root.dataset.theme=saved;
-
-document.getElementById("themeToggle").addEventListener("click",()=>{
-  const dark=root.dataset.theme==="dark";
-  root.dataset.theme=dark?"light":"dark";
-  localStorage.setItem("theme",root.dataset.theme);
-  document.getElementById("themeToggle").textContent=dark?"☾":"☀";
-});
-
-document.querySelector(".menu-btn").addEventListener("click",()=>{
-  document.querySelector(".nav-links").classList.toggle("open");
-});
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{
-  document.querySelector(".nav-links").classList.remove("open");
-}));
-document.getElementById("year").textContent=new Date().getFullYear();
+const r=document.documentElement,s=localStorage.getItem('theme');if(s)r.dataset.theme=s;const t=document.getElementById('theme');function icon(){t.textContent=r.dataset.theme==='dark'?'☀':'☾'}icon();t.onclick=()=>{r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';localStorage.setItem('theme',r.dataset.theme);icon()};document.querySelector('.menu').onclick=()=>document.querySelector('.links').classList.toggle('open');document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.querySelector('.links').classList.remove('open'));document.getElementById('year').textContent=new Date().getFullYear();
